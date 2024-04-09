@@ -21,7 +21,7 @@ class UserAccess
 
     if (!$auth) {
         Session::flash('message', 'Unauthorized access');
-        return redirect('/login')->with('message', 'Unauthorized');
+        return redirect('/login');
     } elseif ($userType == 'admin' && $auth->type == 1) {
         return $next($request);
     } elseif ($userType == 'manager' && $auth->type == 2) {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
@@ -60,8 +61,8 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+            Session::flash('message', 'Email-Address And Password Are Wrong');
+            return redirect()->route('login');
         }
           
     }
