@@ -49,4 +49,13 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "manager"][$value],
         );
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'email' => $this->email
+        ];
+    }
+
 }

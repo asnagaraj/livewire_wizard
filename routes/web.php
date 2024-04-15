@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,8 @@ Route::get('call-helper', function(){
     $ymd = convertMdyToYmd('08-11-2022');
     var_dump("Converted into 'YMD': " . $ymd);
 });
+
+ // scout using package
+
+ Route::get('users', [UserController::class, 'index']);
+ Route::get('create',[UserController::class,'create']);
