@@ -12,12 +12,16 @@ class UserController extends Controller
 {
     public function index(Request $request): View
     {
-        if($request->filled('search')){
-            $users = User::search($request->search)->get();
-        }else{
-            $users = User::get();
+        $searchTerm = $request->input('search');
+
+        if ($searchTerm) {
+            $users = User::where('name', 'LIKE', '%' . $searchTerm . '%')
+                         ->orWhere('email', 'LIKE', '%' . $searchTerm . '%')
+                         ->get();
+        } else {
+            $users = User::all();
         }
-          
+    
         return view('users', compact('users'));
     }
 

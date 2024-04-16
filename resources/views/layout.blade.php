@@ -73,7 +73,17 @@
         </div>
     </div>
 </nav>
-  
+                @if(Session::has('message'))
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="alert alert-danger text-center">
+                                    {{ Session::get('message') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 @yield('content')
      
 </body>

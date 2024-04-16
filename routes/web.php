@@ -77,4 +77,6 @@ Route::get('call-helper', function(){
  // scout using package
 
  Route::get('users', [UserController::class, 'index']);
+
+ // Squirephp country and state package
  Route::get('create',[UserController::class,'create']);
