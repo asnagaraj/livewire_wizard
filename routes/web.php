@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PdfMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +81,6 @@ Route::get('call-helper', function(){
 
  // Squirephp country and state package
  Route::get('create',[UserController::class,'create']);
+
+ // email attachements
+ Route::get('send-pdf-via-mail', [PdfMailController::class, 'index']);

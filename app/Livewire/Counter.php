@@ -49,7 +49,7 @@ class Counter extends Component
     
     public function render()
     {
-        $user = User::where('email','admin@example.com')->first();
+        $user = User::where('email','admin@gmail.com')->first();
         return view('livewire.counter')->with([
             'author' => $user->name
         ]);
